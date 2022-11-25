@@ -36,6 +36,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 8px;
 }
 .header__icons {
   display: flex;

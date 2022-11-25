@@ -1,5 +1,7 @@
 <template>
-  <h1>Optimizing CSS for faster page loads</h1>
+  <div>
+    <latest-post-card />
+  </div>
 </template>
 
 <script>
