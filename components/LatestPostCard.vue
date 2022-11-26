@@ -3,7 +3,7 @@
     <div class="card__image__container">
       <img
         width="100%"
-        src="~assets/large.png"
+        :src="latestPost.image"
         alt="image"
         class="card__image"
       />
@@ -11,27 +11,24 @@
     <div class="card__content">
       <div class="card__header">
         <div class="card__header_top">
-          <span class="card__header_category">Front-end</span>
+          <span class="card__header_category">{{ latestPost.section }}</span>
           <div class="dot"></div>
-          <span class="card__header_time_posted">1 Hour Ago</span>
+          <span class="card__header_time_posted">{{
+            $moment(latestPost.publishedDate).fromNow()
+          }}</span>
         </div>
-        <h3 class="card__title">Optimizing CSS for faster page loads</h3>
+        <h3 v-html="latestPost.title" class="card__title"></h3>
       </div>
       <div class="card__text">
-        <span
-          >Not long ago I decided to improve the loading times of my website. It
-          already loads pretty fast, but I knew there was still room for
-          improvement and one of them was CSS loading. I will walk you through
-          the process and show you how you can improve your load times as well.
-          To see how CSS affects the load time of a webpage we first have to
-          know how the browser converts an HTML document into a functional
-          webpage...</span
-        >
+        <span v-html="latestPost.excerpt"></span>
       </div>
 
       <div class="card__footer">
-        <span>3 Min Read</span>
-        <nuxt-link to="" class="card__footer_link">
+        <span>{{ latestPost.readingTime }} Min Read</span>
+        <nuxt-link
+          :to="'/blog-details/' + latestPost.id"
+          class="card__footer_link"
+        >
           Read Full <img src="~assets/arrow.svg" alt="arrow-right" />
         </nuxt-link>
       </div>
@@ -40,8 +37,12 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "LatestPostCard",
+  computed: {
+    ...mapGetters(["latestPost"]),
+  },
 };
 </script>
 <style lang="scss" scoped>

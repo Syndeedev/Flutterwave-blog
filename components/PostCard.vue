@@ -1,36 +1,26 @@
 <template>
   <div class="card">
     <div class="card__image_container">
-      <img
-        :src="post.jetpack_featured_media_url"
-        width="300px"
-        alt="card image"
-        class="card__image"
-      />
+      <img :src="post.image" :alt="post.section" class="card__image" />
     </div>
     <div class="card__content">
       <div class="card__header">
         <div class="card__header_top">
-          <span class="card__header_category">Front-end</span>
+          <span class="card__header_category">{{ post.section }}</span>
           <div class="dot"></div>
-          <span class="card__header_time_posted">1 Hour Ago</span>
+          <span class="card__header_time_posted">{{
+            $moment(post.publishedDate).fromNow()
+          }}</span>
         </div>
-        <h3 class="card__title">Optimizing CSS for faster page loads</h3>
+        <h3 v-html="post.title" class="card__title"></h3>
       </div>
       <div class="card__text">
-        <span
-          >Not long ago I decided to improve the loading times of my website. It
-          already loads pretty fast, but I knew there was still room for
-          improvement and one of them was CSS loading. I will walk you through
-          the process and show you how you can improve your load times as well.
-          To see how CSS affects the load time of a webpage we first have to
-          know how the browser converts an HTML document into a functional
-          webpage...</span
-        >
+        <p v-html="post.excerpt"></p>
+        <!-- <p v-html="trimmedString(post.excerpt)"></p> -->
       </div>
 
       <div class="card__footer">
-        <span>3 Min Read</span>
+        <span>{{ post.readingTime }} Min Read</span>
         <nuxt-link :to="'/blog-details/' + post.id" class="card__footer_link">
           Read Full <img src="~assets/arrow.svg" alt="arrow-right" />
         </nuxt-link>
@@ -42,6 +32,11 @@
 <script>
 export default {
   name: "PostCard",
+  data() {
+    return {
+      reading_time: Math.floor(Math.random() * (10 - 4 + 1)) + 4,
+    };
+  },
   props: {
     post: {
       type: Object,
@@ -56,12 +51,16 @@ export default {
   border: 1px solid #f5f5f5;
 }
 .card__image {
+  width: 100%;
   border-radius: 5px;
 }
 
 @media screen and (min-width: 768px) {
   .card {
     max-width: 300px;
+  }
+  .card__image {
+    height: 190px;
   }
 }
 </style>

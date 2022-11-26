@@ -2,140 +2,30 @@
   <div>
     <latest-post-card />
     <div class="cards_container">
-      <post-card :post="post" v-for="post in posts" :key="post.id" />
+      <post-card
+        :post="post"
+        v-for="post in allPostsExceptFirst"
+        :key="post.id"
+      />
     </div>
     <!-- <join-us /> -->
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "BlogListing",
   data() {
-    return {
-      posts: [
-        {
-          id: 2448226,
-          date: "2022-11-25T07:23:54",
-          slug: "amazon-to-shut-down-food-delivery-business-in-india",
-          status: "publish",
-          type: "post",
-          link: "https:\/\/techcrunch.com\/2022\/11\/25\/amazon-to-shut-down-food-delivery-business-in-india\/",
-          title: {
-            rendered: "Amazon to shut down food delivery business in India",
-          },
-          content: {
-            rendered:
-              '<p id="speakable-summary">Amazon will shut down its food delivery business in India by the end of the year, the retailer said Friday, retreating from a vertical it entered <a href="https:\/\/techcrunch.com\/2020\/05\/21\/amazon-launches-food-delivery-service-in-india\/">less than three years ago<\/a>.<\/p>\n<p>The company said it will shut down the food delivery business, called Amazon Food, on December 29. The company launched Food in India in May 2020 in parts of Bengaluru. The company later expanded the service across the city, tying up with additional restaurants, but it never heavily promoted or marketed the platform.<\/p>\n<p>\u201cWe don\u2019t take these decisions lightly. We are discontinuing these programs in a phased manner to take care of current customers and partners and we are supporting our affected employees during this transition,&#8221; a company spokesperson told TechCrunch in a statement. &#8220;Amazon remains focused on providing our growing customer base the best online shopping experience with the largest selection of products at great value and convenience.\u201d<\/p>\n<p>The announcement is part of company&#8217;s broader restructuring in India. Earlier this week, Amazon announced it would shut down its edtech service Academy in the country next year.<\/p>\n<p><em>(More to follow)<\/em><\/p>\n',
-            protected: false,
-          },
-          excerpt: {
-            rendered:
-              "<p>Amazon will shut down its food delivery business in India by the end of the year, the retailer said Friday, retreating from a vertical it entered less than three years ago. The company said it will shut down the food delivery business, called Amazon Food, on December 29. The company launched Food in India in [&hellip;]<\/p>\n",
-            protected: false,
-          },
-
-          jetpack_featured_media_url:
-            "https:\/\/techcrunch.com\/wp-content\/uploads\/2022\/04\/GettyImages-1239588817.jpg",
-        },
-        {
-          id: 2448227,
-          date: "2022-11-25T07:23:54",
-          slug: "amazon-to-shut-down-food-delivery-business-in-india",
-          status: "publish",
-          type: "post",
-          link: "https:\/\/techcrunch.com\/2022\/11\/25\/amazon-to-shut-down-food-delivery-business-in-india\/",
-          title: {
-            rendered: "Amazon to shut down food delivery business in India",
-          },
-          content: {
-            rendered:
-              '<p id="speakable-summary">Amazon will shut down its food delivery business in India by the end of the year, the retailer said Friday, retreating from a vertical it entered <a href="https:\/\/techcrunch.com\/2020\/05\/21\/amazon-launches-food-delivery-service-in-india\/">less than three years ago<\/a>.<\/p>\n<p>The company said it will shut down the food delivery business, called Amazon Food, on December 29. The company launched Food in India in May 2020 in parts of Bengaluru. The company later expanded the service across the city, tying up with additional restaurants, but it never heavily promoted or marketed the platform.<\/p>\n<p>\u201cWe don\u2019t take these decisions lightly. We are discontinuing these programs in a phased manner to take care of current customers and partners and we are supporting our affected employees during this transition,&#8221; a company spokesperson told TechCrunch in a statement. &#8220;Amazon remains focused on providing our growing customer base the best online shopping experience with the largest selection of products at great value and convenience.\u201d<\/p>\n<p>The announcement is part of company&#8217;s broader restructuring in India. Earlier this week, Amazon announced it would shut down its edtech service Academy in the country next year.<\/p>\n<p><em>(More to follow)<\/em><\/p>\n',
-            protected: false,
-          },
-          excerpt: {
-            rendered:
-              "<p>Amazon will shut down its food delivery business in India by the end of the year, the retailer said Friday, retreating from a vertical it entered less than three years ago. The company said it will shut down the food delivery business, called Amazon Food, on December 29. The company launched Food in India in [&hellip;]<\/p>\n",
-            protected: false,
-          },
-
-          jetpack_featured_media_url:
-            "https:\/\/techcrunch.com\/wp-content\/uploads\/2022\/04\/GettyImages-1239588817.jpg",
-        },
-        {
-          id: 2448228,
-          date: "2022-11-25T07:23:54",
-          slug: "amazon-to-shut-down-food-delivery-business-in-india",
-          status: "publish",
-          type: "post",
-          link: "https:\/\/techcrunch.com\/2022\/11\/25\/amazon-to-shut-down-food-delivery-business-in-india\/",
-          title: {
-            rendered: "Amazon to shut down food delivery business in India",
-          },
-          content: {
-            rendered:
-              '<p id="speakable-summary">Amazon will shut down its food delivery business in India by the end of the year, the retailer said Friday, retreating from a vertical it entered <a href="https:\/\/techcrunch.com\/2020\/05\/21\/amazon-launches-food-delivery-service-in-india\/">less than three years ago<\/a>.<\/p>\n<p>The company said it will shut down the food delivery business, called Amazon Food, on December 29. The company launched Food in India in May 2020 in parts of Bengaluru. The company later expanded the service across the city, tying up with additional restaurants, but it never heavily promoted or marketed the platform.<\/p>\n<p>\u201cWe don\u2019t take these decisions lightly. We are discontinuing these programs in a phased manner to take care of current customers and partners and we are supporting our affected employees during this transition,&#8221; a company spokesperson told TechCrunch in a statement. &#8220;Amazon remains focused on providing our growing customer base the best online shopping experience with the largest selection of products at great value and convenience.\u201d<\/p>\n<p>The announcement is part of company&#8217;s broader restructuring in India. Earlier this week, Amazon announced it would shut down its edtech service Academy in the country next year.<\/p>\n<p><em>(More to follow)<\/em><\/p>\n',
-            protected: false,
-          },
-          excerpt: {
-            rendered:
-              "<p>Amazon will shut down its food delivery business in India by the end of the year, the retailer said Friday, retreating from a vertical it entered less than three years ago. The company said it will shut down the food delivery business, called Amazon Food, on December 29. The company launched Food in India in [&hellip;]<\/p>\n",
-            protected: false,
-          },
-
-          jetpack_featured_media_url:
-            "https:\/\/techcrunch.com\/wp-content\/uploads\/2022\/04\/GettyImages-1239588817.jpg",
-        },
-        {
-          id: 2448229,
-          date: "2022-11-25T07:23:54",
-          slug: "amazon-to-shut-down-food-delivery-business-in-india",
-          status: "publish",
-          type: "post",
-          link: "https:\/\/techcrunch.com\/2022\/11\/25\/amazon-to-shut-down-food-delivery-business-in-india\/",
-          title: {
-            rendered: "Amazon to shut down food delivery business in India",
-          },
-          content: {
-            rendered:
-              '<p id="speakable-summary">Amazon will shut down its food delivery business in India by the end of the year, the retailer said Friday, retreating from a vertical it entered <a href="https:\/\/techcrunch.com\/2020\/05\/21\/amazon-launches-food-delivery-service-in-india\/">less than three years ago<\/a>.<\/p>\n<p>The company said it will shut down the food delivery business, called Amazon Food, on December 29. The company launched Food in India in May 2020 in parts of Bengaluru. The company later expanded the service across the city, tying up with additional restaurants, but it never heavily promoted or marketed the platform.<\/p>\n<p>\u201cWe don\u2019t take these decisions lightly. We are discontinuing these programs in a phased manner to take care of current customers and partners and we are supporting our affected employees during this transition,&#8221; a company spokesperson told TechCrunch in a statement. &#8220;Amazon remains focused on providing our growing customer base the best online shopping experience with the largest selection of products at great value and convenience.\u201d<\/p>\n<p>The announcement is part of company&#8217;s broader restructuring in India. Earlier this week, Amazon announced it would shut down its edtech service Academy in the country next year.<\/p>\n<p><em>(More to follow)<\/em><\/p>\n',
-            protected: false,
-          },
-          excerpt: {
-            rendered:
-              "<p>Amazon will shut down its food delivery business in India by the end of the year, the retailer said Friday, retreating from a vertical it entered less than three years ago. The company said it will shut down the food delivery business, called Amazon Food, on December 29. The company launched Food in India in [&hellip;]<\/p>\n",
-            protected: false,
-          },
-
-          jetpack_featured_media_url:
-            "https:\/\/techcrunch.com\/wp-content\/uploads\/2022\/04\/GettyImages-1239588817.jpg",
-        },
-        {
-          id: 2448223,
-          date: "2022-11-25T07:23:54",
-          slug: "amazon-to-shut-down-food-delivery-business-in-india",
-          status: "publish",
-          type: "post",
-          link: "https:\/\/techcrunch.com\/2022\/11\/25\/amazon-to-shut-down-food-delivery-business-in-india\/",
-          title: {
-            rendered: "Amazon to shut down food delivery business in India",
-          },
-          content: {
-            rendered:
-              '<p id="speakable-summary">Amazon will shut down its food delivery business in India by the end of the year, the retailer said Friday, retreating from a vertical it entered <a href="https:\/\/techcrunch.com\/2020\/05\/21\/amazon-launches-food-delivery-service-in-india\/">less than three years ago<\/a>.<\/p>\n<p>The company said it will shut down the food delivery business, called Amazon Food, on December 29. The company launched Food in India in May 2020 in parts of Bengaluru. The company later expanded the service across the city, tying up with additional restaurants, but it never heavily promoted or marketed the platform.<\/p>\n<p>\u201cWe don\u2019t take these decisions lightly. We are discontinuing these programs in a phased manner to take care of current customers and partners and we are supporting our affected employees during this transition,&#8221; a company spokesperson told TechCrunch in a statement. &#8220;Amazon remains focused on providing our growing customer base the best online shopping experience with the largest selection of products at great value and convenience.\u201d<\/p>\n<p>The announcement is part of company&#8217;s broader restructuring in India. Earlier this week, Amazon announced it would shut down its edtech service Academy in the country next year.<\/p>\n<p><em>(More to follow)<\/em><\/p>\n',
-            protected: false,
-          },
-          excerpt: {
-            rendered:
-              "<p>Amazon will shut down its food delivery business in India by the end of the year, the retailer said Friday, retreating from a vertical it entered less than three years ago. The company said it will shut down the food delivery business, called Amazon Food, on December 29. The company launched Food in India in [&hellip;]<\/p>\n",
-            protected: false,
-          },
-
-          jetpack_featured_media_url:
-            "https:\/\/techcrunch.com\/wp-content\/uploads\/2022\/04\/GettyImages-1239588817.jpg",
-        },
-      ],
-    };
+    return {};
+  },
+  computed: {
+    ...mapGetters(["allPosts"]),
+    allPostsExceptFirst() {
+      const posts = [...this.allPosts];
+      posts.shift();
+      return posts;
+    },
   },
 };
 </script>
