@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div v-if="loading">ooooooooommmmmmmmmooooo</div>
+    <div v-if="loading">
+      <loader />
+    </div>
     <blog-listing v-else />
   </div>
 </template>
@@ -17,8 +19,6 @@ export default {
     this.$store.dispatch("getAllPosts").then((res) => {
       this.loading = false;
     });
-    //   console.log(response.data);
-    // } catch (e) {}
   },
 };
 </script>
