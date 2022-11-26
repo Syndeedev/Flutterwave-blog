@@ -18,10 +18,8 @@ export const actions = {
       const response = await axios.get(
         `https://techcrunch.com/wp-json/wp/v2/posts`
       );
-      let data = [];
-
-      Array.from(response.data).forEach((post, i) => {
-        data.push({
+      const posts = response.data.map((post) => {
+        return {
           id: post.id,
           author: post.parselyMeta["parsely-author"][0],
           publishedDate: post.parselyMeta["parsely-pub-date"],
@@ -32,12 +30,12 @@ export const actions = {
           excerpt: post.excerpt.rendered,
           content: post.content.rendered,
           readingTime: Math.floor(Math.random() * 10) + 4,
-        });
-      });
-      commit("allPosts", data);
-      return response;
+        }
+      })
+      commit("allPosts", posts);
+      return true;
     } catch (e) {
-      //
+      return false;
     }
   },
 };

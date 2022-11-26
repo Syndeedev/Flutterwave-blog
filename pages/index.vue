@@ -16,9 +16,7 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch("getAllPosts").then((res) => {
-      this.loading = false;
-    });
+    this.$store.dispatch("getAllPosts").then(() => (this.loading = false));
   },
 };
 </script>
