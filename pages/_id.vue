@@ -3,8 +3,8 @@
     <div class="blog__content">
       <div class="card__header">
         <div class="card__header_top">
-          <span class="card__header_time_posted"
-            >By {{ currentPost.author }}
+          <span class="card__header_time_posted">
+            By {{ currentPost.author }}
           </span>
           <div class="dot"></div>
           <span class="card__header_time_posted">
@@ -16,10 +16,10 @@
 
       <p v-html="currentPost.content"></p>
     </div>
-    <div>
+    <div v-if="randomPosts.length">
       <h4>More Articles</h4>
       <div class="cards_container">
-        <post-card :post="post" v-for="post in randomPosts" :key="post.id" />
+        <post-card v-for="post in randomPosts" :key="post.id" :post="post" />
       </div>
     </div>
   </div>

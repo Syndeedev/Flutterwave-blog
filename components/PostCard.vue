@@ -8,9 +8,9 @@
         <div class="card__header_top">
           <span class="card__header_category">{{ post.section }}</span>
           <div class="dot"></div>
-          <span class="card__header_time_posted">{{
-            $moment(post.publishedDate).fromNow()
-          }}</span>
+          <span class="card__header_time_posted">
+            {{ $moment(post.publishedDate).fromNow() }}
+          </span>
         </div>
         <h3 v-html="trimString(post.title, 45)" class="card__title"></h3>
       </div>
@@ -32,11 +32,6 @@
 import { shortenText } from "@/helpers";
 export default {
   name: "PostCard",
-  data() {
-    return {
-      reading_time: Math.floor(Math.random() * (10 - 4 + 1)) + 4,
-    };
-  },
   props: {
     post: {
       type: Object,

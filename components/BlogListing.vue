@@ -3,12 +3,12 @@
     <latest-post-card />
     <div class="cards_container">
       <post-card
-        :post="post"
         v-for="post in allPostsExceptFirst"
+        :post="post"
         :key="post.id"
       />
     </div>
-    <!-- <join-us /> -->
+    <join-us />
   </div>
 </template>
 

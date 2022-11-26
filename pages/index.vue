@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div v-if="loading">
-      <loader />
-    </div>
+    <loader v-if="loading" />
     <blog-listing v-else />
   </div>
 </template>

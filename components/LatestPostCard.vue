@@ -2,9 +2,8 @@
   <div class="card">
     <div class="card__image__container">
       <img
-        width="100%"
         :src="latestPost.image"
-        alt="image"
+        :alt="latestPost.section"
         class="card__image"
       />
     </div>
@@ -13,9 +12,9 @@
         <div class="card__header_top">
           <span class="card__header_category">{{ latestPost.section }}</span>
           <div class="dot"></div>
-          <span class="card__header_time_posted">{{
-            $moment(latestPost.publishedDate).fromNow()
-          }}</span>
+          <span class="card__header_time_posted">
+            {{ $moment(latestPost.publishedDate).fromNow() }}
+          </span>
         </div>
         <h3 v-html="trimString(latestPost.title, 100)" class="card__title"></h3>
       </div>
