@@ -1,5 +1,5 @@
 <template>
-  <div class="blog__detail">
+  <div class="blog__detail" v-if="currentPost">
     <div class="blog__content">
       <div class="card__header">
         <div class="card__header_top">

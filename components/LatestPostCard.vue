@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" v-if="latestPost && latestPost.id">
     <div class="card__image__container">
       <img
         :src="latestPost.image"
