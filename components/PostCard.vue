@@ -1,10 +1,10 @@
 <template>
   <div class="card">
-    <div class="card__image__container">
+    <div class="card__image_container">
       <img
-        width="100%"
-        src="~assets/large.png"
-        alt="image"
+        :src="post.jetpack_featured_media_url"
+        width="300px"
+        alt="card image"
         class="card__image"
       />
     </div>
@@ -31,7 +31,7 @@
 
       <div class="card__footer">
         <span>3 Min Read</span>
-        <nuxt-link to="" class="card__footer_link">
+        <nuxt-link :to="'/blog-details/' + post.id" class="card__footer_link">
           Read Full <img src="~assets/arrow.svg" alt="arrow-right" />
         </nuxt-link>
       </div>
@@ -41,33 +41,27 @@
 
 <script>
 export default {
-  name: "LatestPostCard",
+  name: "PostCard",
+  props: {
+    post: {
+      type: Object,
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
 .card {
-  margin-top: 50px;
-  &__image {
-    border-radius: 3.5px;
-    object-fit: contain;
-    width: 90%;
-  }
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #f5f5f5;
 }
+.card__image {
+  border-radius: 5px;
+}
+
 @media screen and (min-width: 768px) {
   .card {
-    flex-direction: row;
-    align-items: center;
-  }
-  .card__image {
-    // transition: all 0.7s ease;
-    width: 23rem;
-    object-fit: fill;
-  }
-  //   .card__image:hover {
-  // transform: scale(1.1);
-  //   }
-  .card__content {
-    padding: 0 16px;
+    max-width: 300px;
   }
 }
 </style>
