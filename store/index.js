@@ -1,4 +1,5 @@
 import axios from "axios";
+const apiUrl = process.env.API_URL || "https://techcrunch.com/wp-json/wp/v2/posts";
 export const state = () => ({
   allPosts: [],
 });
@@ -15,9 +16,7 @@ export const mutations = {
 export const actions = {
   async getAllPosts({ commit }) {
     try {
-      const response = await axios.get(
-        `https://techcrunch.com/wp-json/wp/v2/posts`
-      );
+      const response = await axios.get(apiUrl);
       const posts = response.data.map((post) => {
         return {
           id: post.id,
