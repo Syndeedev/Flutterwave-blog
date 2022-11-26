@@ -1,5 +1,5 @@
 <template>
-  <div class="blog_detail">
+  <div class="blog__detail">
     <div class="blog__content">
       <div class="card__header">
         <div class="card__header_top">
@@ -48,9 +48,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.blog__detail {
+  margin-bottom: 10rem;
+}
 .blog__content {
   padding: 0 10px;
-  margin-top: 50px;
+  margin: 50px 0;
 }
 .card__title {
   padding: 16px 0;

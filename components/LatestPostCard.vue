@@ -17,10 +17,10 @@
             $moment(latestPost.publishedDate).fromNow()
           }}</span>
         </div>
-        <h3 v-html="latestPost.title" class="card__title"></h3>
+        <h3 v-html="trimString(latestPost.title, 100)" class="card__title"></h3>
       </div>
       <div class="card__text">
-        <span v-html="latestPost.excerpt"></span>
+        <span v-html="trimString(latestPost.excerpt, 200)"></span>
       </div>
 
       <div class="card__footer">
@@ -38,10 +38,16 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { shortenText } from "@/helpers";
 export default {
   name: "LatestPostCard",
   computed: {
     ...mapGetters(["latestPost"]),
+  },
+  methods: {
+    trimString(str, length) {
+      return shortenText(str, length);
+    },
   },
 };
 </script>

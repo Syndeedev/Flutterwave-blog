@@ -12,11 +12,10 @@
             $moment(post.publishedDate).fromNow()
           }}</span>
         </div>
-        <h3 v-html="post.title" class="card__title"></h3>
+        <h3 v-html="trimString(post.title, 45)" class="card__title"></h3>
       </div>
       <div class="card__text">
-        <p v-html="post.excerpt"></p>
-        <!-- <p v-html="trimmedString(post.excerpt)"></p> -->
+        <p v-html="trimString(post.excerpt, 200)"></p>
       </div>
 
       <div class="card__footer">
@@ -30,6 +29,7 @@
 </template>
 
 <script>
+import { shortenText } from "@/helpers";
 export default {
   name: "PostCard",
   data() {
@@ -40,6 +40,11 @@ export default {
   props: {
     post: {
       type: Object,
+    },
+  },
+  methods: {
+    trimString(str, length) {
+      return shortenText(str, length);
     },
   },
 };
