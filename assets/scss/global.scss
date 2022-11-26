@@ -1,3 +1,94 @@
-*{
-	// margin: 0;
+* {
+	margin: 0;
+	padding: 0;
+    font-family: "SF Pro Display";
 }
+
+html,
+body {
+	box-sizing: border-box;
+}
+.dot {
+	width: 2px;
+	height: 2px;
+	background: black;
+	border-radius: 50%;
+	margin: 0 4px;
+  }
+
+.card {
+	border: 1px solid #f5f5f5;
+	border-radius: 5px;
+	display: flex;
+	padding: 8px;
+	flex-direction: column;
+	align-items: initial;
+  
+	&__header {
+	  &_top {
+		display: flex;
+		align-items: center;
+	  }
+	  &_category {
+		font-style: normal;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 14px;
+		color: $color-fl-black-30;
+		text-transform: capitalize;
+	  }
+  
+	  &_time_posted {
+		font-style: normal;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 14px;
+		color: $color-fl-black-20;
+		text-transform: capitalize;
+	  }
+	}
+	
+	&__text {
+	  font-style: normal;
+	  font-weight: 400;
+	  font-size: 14px;
+	  line-height: 21px;
+	  color: $color-fl-black-20;
+	  padding-bottom: 30px;
+	}
+  
+	&__content {
+	  padding-top: 16px;
+	}
+  
+	&__title {
+	  font-style: normal;
+	  font-weight: 900;
+	  font-size: 22px;
+	  line-height: 26px;
+	  color: $color-fl-black;
+	  padding: 8px 0;
+	}
+  
+	&__footer {
+	  display: flex;
+	  justify-content: space-between;
+	  span {
+		font-style: normal;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 14px;
+		color: $color-fl-black-20;
+	  }
+	  &_link {
+		display: flex;
+		align-items: center;
+		font-style: normal;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 14px;
+		color: $color-fl-blue;
+		text-decoration: none;
+	  }
+	}
+  }
