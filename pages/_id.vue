@@ -31,16 +31,13 @@ export default {
   name: "BlogDetails",
 
   computed: {
-    ...mapGetters(["allPosts", "randomPosts"]),
-    postId() {
-      return parseInt(this.$route.params.id);
-    },
+    ...mapGetters(["allPosts"]),
     currentPost() {
-      return this.allPosts.find((post) => post.id === this.postId);
+      return this.allPosts.find((post) => post.slug === this.$route.params.id);
     },
     randomPosts() {
       return [...this.allPosts]
-        .filter((post) => post.id !== this.postId)
+        .filter((post) => post.id !== this.currentPost.id)
         .sort(() => Math.random() - Math.random())
         .slice(0, 3);
     },

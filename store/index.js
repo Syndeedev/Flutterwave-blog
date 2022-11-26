@@ -27,6 +27,7 @@ export const actions = {
           publishedDate: post.parselyMeta["parsely-pub-date"],
           section: post.primary_category.slug,
           image: post.jetpack_featured_media_url,
+          slug: post.slug,
           title: post.title.rendered,
           excerpt: post.excerpt.rendered,
           content: post.content.rendered,

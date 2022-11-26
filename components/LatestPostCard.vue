@@ -25,10 +25,7 @@
 
       <div class="card__footer">
         <span>{{ latestPost.readingTime }} Min Read</span>
-        <nuxt-link
-          :to="'/blog-details/' + latestPost.id"
-          class="card__footer_link"
-        >
+        <nuxt-link :to="`/${latestPost.slug}`" class="card__footer_link">
           Read Full <img src="~assets/arrow.svg" alt="arrow-right" />
         </nuxt-link>
       </div>
