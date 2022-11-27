@@ -41,10 +41,16 @@ export default {
   computed: {
     ...mapGetters(["allPosts", "currentPost"]),
     randomPosts() {
-      return [...this.allPosts]
+      let posts = [...this.allPosts]
         .filter((post) => post.id !== this.currentPost.id)
         .sort(() => Math.random() - Math.random())
         .slice(0, 3);
+      if (posts.length) {
+        localStorage.setItem("randomPosts", JSON.stringify(posts));
+        return posts;
+      }
+      posts = JSON.parse(localStorage.getItem("randomPosts")) || [];
+      return posts;
     },
   },
   mounted() {
