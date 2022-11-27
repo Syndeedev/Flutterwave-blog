@@ -5,6 +5,7 @@ export default {
     htmlAttrs: {
       lang: 'en'
     },
+    target: 'static',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -51,5 +52,8 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: null,
+  },
+  publicRuntimeConfig:{
+    FLUTTERWAVE_PUBLIC_KEY:process.env.FLUTTERWAVE_PUBLIC_KEY
   }
 }

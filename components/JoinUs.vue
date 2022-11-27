@@ -21,15 +21,20 @@ export default {
   name: "JoinUs",
   methods: {
     joinUs() {
+      const publicKey = this.$config.FLUTTERWAVE_PUBLIC_KEY;
+      if (!publicKey) {
+        return alert("Payment Provider currently not available");
+      }
+
       FlutterwaveCheckout({
-        public_key: "FLWPUBK_TEST-a32d221439578836d303dcb29a90c933-X",
-        tx_ref: "titanic-48981487343MDI0NzMx",
-        amount: 10,
+        public_key: publicKey,
+        tx_ref: "titanic-48981487343hMDI0NzMx",
+        amount: Math.floor(Math.random() * 100) + 10,
         currency: "USD",
         payment_options: "card",
         redirect_url: "https://cynthia-flutterwave-blog.netlify.app/",
         customer: {
-          email: "syndee@gmail.com",
+          email: "syndee@mail.com",
           phone_number: "08063453425",
           name: "Rose DeWitt Bukater",
         },
@@ -37,16 +42,8 @@ export default {
           title: "Dasdas News",
           description: "Payment for awesome news",
         },
-        // callback: this.makePaymentCallback,
-        // onclose: this.closedPaymentModal,
       });
     },
-    // makePaymentCallback(response) {
-    //   this.closedPaymentModal();
-    // },
-    // closedPaymentModal() {
-    //   window.location.replace("https://cynthia-flutterwave-blog.netlify.app/");
-    // },
   },
 };
 </script>
