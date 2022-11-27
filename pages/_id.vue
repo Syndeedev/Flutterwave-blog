@@ -20,7 +20,7 @@
         <p v-html="currentPost.content"></p>
       </div>
       <div v-if="randomPosts.length">
-        <h4>More Articles</h4>
+        <h4 class="more__article">More Articles</h4>
         <div class="cards_container">
           <post-card v-for="post in randomPosts" :key="post.id" :post="post" />
         </div>
@@ -78,16 +78,18 @@ export default {
     padding: 0 6rem;
   }
 }
-@media screen and (min-width: 1024px) {
-  .blog__content {
-    padding: 0 10rem;
-  }
-}
 .cards_container {
   margin-top: 50px;
   display: flex;
   gap: 45px;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+.more__article {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  color: $color-fl-black;
 }
 </style>

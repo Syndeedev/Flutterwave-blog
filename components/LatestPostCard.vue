@@ -1,5 +1,9 @@
 <template>
-  <div class="card" v-if="latestPost && latestPost.id">
+  <div
+    class="card"
+    v-if="latestPost && latestPost.id"
+    @click="$router.push(`/${latestPost.slug}`)"
+  >
     <div class="card__image__container">
       <img
         :src="latestPost.image"
@@ -53,7 +57,7 @@ export default {
   &__image {
     border-radius: 3.5px;
     object-fit: contain;
-    width: 90%;
+    width: 100%;
   }
 }
 @media screen and (min-width: 768px) {
