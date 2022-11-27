@@ -13,7 +13,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {href:"http://fonts.cdnfonts.com/css/sf-pro-display", rel:"stylesheet"}
+      {href:"https://fonts.cdnfonts.com/css/sf-pro-display", rel:"stylesheet"}
     ],
     script: [
       {
