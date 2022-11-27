@@ -11,8 +11,14 @@
 .container {
   margin-top: 5rem;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    justify-content: space-between;
+  }
 }
 .wrapper {
   width: 320px;

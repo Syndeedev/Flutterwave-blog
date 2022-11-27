@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "IndexPage",
   data() {
@@ -13,8 +14,15 @@ export default {
       loading: true,
     };
   },
-  created() {
-    this.$store.dispatch("getAllPosts").then(() => (this.loading = false));
+  mounted() {
+    if (!this.allPosts.length) {
+      this.$store.dispatch("getAllPosts").then(() => (this.loading = false));
+    } else {
+      this.loading = false;
+    }
+  },
+  computed: {
+    ...mapGetters(["allPosts"]),
   },
 };
 </script>

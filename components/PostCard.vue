@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="$router.push(`/${post.slug}`)">
     <div class="card__image_container">
       <img :src="post.image" :alt="post.section" class="card__image" />
     </div>
