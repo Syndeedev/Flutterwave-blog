@@ -14,11 +14,14 @@
           <img src="~assets/dribbble.svg" alt="dribbble Logo" />
         </a>
         <span>.</span>
-        <a href="https://www.figma.com" target="_blank">
+        <a
+          href="https://www.figma.com/file/9XGAZezd4zERCQGtRwbm2Z/Blog-Template-(Community)?node-id=15%3A55&t=ijlMbE3ZkCC5PHzD-0"
+          target="_blank"
+        >
           <img src="~assets/figma.svg" alt="figma Logo" />
         </a>
         <span>.</span>
-        <a href="https://www.github.com" target="_blank">
+        <a href="https://github.com/Syndeedev/Flutterwave-blog" target="_blank">
           <img src="~assets/github.svg" alt="github Logo" />
         </a>
       </div>
@@ -41,5 +44,8 @@ export default {
 .header__icons {
   display: flex;
   gap: 5px;
+  a:hover {
+    transform: scale(1.1);
+  }
 }
 </style>

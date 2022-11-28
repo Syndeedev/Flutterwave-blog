@@ -8,7 +8,6 @@
         :key="post.id"
       />
     </div>
-    <join-us />
   </div>
 </template>
 
