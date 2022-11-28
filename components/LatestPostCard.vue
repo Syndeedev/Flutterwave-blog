@@ -28,7 +28,11 @@
 
       <div class="card__footer">
         <span>{{ latestPost.readingTime }} Min Read</span>
-        <nuxt-link :to="`/${latestPost.slug}`" class="card__footer_link">
+        <nuxt-link
+          :to="`/${latestPost.slug}`"
+          class="card__footer_link"
+          aria-label="Read Full Post"
+        >
           Read Full <img src="~assets/arrow.svg" alt="arrow-right" />
         </nuxt-link>
       </div>

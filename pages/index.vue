@@ -1,7 +1,11 @@
 <template>
   <div>
     <loader v-if="loading" />
-    <blog-listing v-else />
+    <template v-else>
+      <blog-listing />
+      <button @click="getPosts">Load More</button>
+      <join-us />
+    </template>
   </div>
 </template>
 
@@ -12,17 +16,26 @@ export default {
   data() {
     return {
       loading: true,
+      page: 0,
     };
   },
   mounted() {
     if (!this.allPosts.length) {
-      this.$store.dispatch("getAllPosts").then(() => (this.loading = false));
+      this.getPosts();
     } else {
       this.loading = false;
     }
   },
   computed: {
     ...mapGetters(["allPosts"]),
+  },
+  methods: {
+    getPosts() {
+      this.loading = true;
+      this.$store
+        .dispatch("getAllPosts", ++this.page)
+        .then(() => (this.loading = false));
+    },
   },
 };
 </script>

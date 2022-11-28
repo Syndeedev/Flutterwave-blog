@@ -10,7 +10,7 @@
       </h3>
     </div>
     <div class="button__center">
-      <button @click="joinUs">Join Us</button>
+      <button @click="joinUs" aria-label="Join Us">Join Us</button>
     </div>
   </div>
 </template>

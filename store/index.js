@@ -13,16 +13,16 @@ export const getters = {
 };
 export const mutations = {
   allPosts: (state, data) => {
-    state.allPosts = data;
+    state.allPosts = state.allPosts.concat(data);
   },
   currentPost: (state, data) => {
     state.currentPost = data;
   },
 };
 export const actions = {
-  async getAllPosts({ commit }) {
+  async getAllPosts({ commit }, page = 1) {
     try {
-      const response = await axios.get(apiUrl);
+      const response = await axios.get(`${apiUrl}?page=${page}`);
       const posts = response.data.map(formatPost);
       commit("allPosts", posts);
       return true;
