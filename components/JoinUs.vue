@@ -29,7 +29,7 @@ export default {
       FlutterwaveCheckout({
         public_key: publicKey,
         tx_ref: "titanic-48981487343hMDI0NzMx",
-        amount: Math.floor(Math.random() * 100) + 10,
+        amount: 25,
         currency: "USD",
         payment_options: "card",
         redirect_url: "https://cynthia-flutterwave-blog.netlify.app/",
