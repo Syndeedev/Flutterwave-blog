@@ -25,7 +25,6 @@
         </nuxt-link>
       </div>
     </div>
-    <p>heloo</p>
   </div>
 </template>
 
